@@ -1,18 +1,19 @@
-import React from 'react';
+import React from 'react'
 
-const CatList = (props) => {
- const catpics = props.catPics.map( (cat) => {
-   return (
-     <img src={cat.url} key={cat.id} />
-  )
- }
- 
-  
-  return (
-    <div>
-      {catpics}
-    </div>
-  )
+// write your CatList component here
+class CatList extends React.Component {
+
+    listCats = () => {
+        return this.props.catPics.map(cat => <img key={cat.id} src={cat.url} alt={cat.id} width="250px" height="250px"/>)
+    }
+
+    render() {
+        return (
+        <div>
+            { this.listCats() }
+        </div>
+        )
+    }
 }
 
-export default CatList
+export default CatList;
